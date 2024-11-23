@@ -168,52 +168,6 @@ int main()
 
     sendThread.join();
     recvThread.join();
-    
-    //// Communication loop
-    //while (true) {
-    //    char sendbuf[DEFAULT_BUFLEN];
-    //    printf("Enter msg: ");
-    //    fgets(sendbuf, sizeof(sendbuf), stdin);
-
-    //    // Remove trailing newline from input
-    //    size_t len = strlen(sendbuf);
-    //    if (len > 0 && sendbuf[len - 1] == '\n') {
-    //        sendbuf[len - 1] = '\0';
-    //    }
-    //    
-    //    // Send message to server
-    //    if (strlen(sendbuf) == 0) {
-    //        // Send '\0' to inform about empty msg
-    //        sendbuf[0] = '\0';
-    //        iResult = send(ConnectSocket, sendbuf, 1, 0); 
-    //    }
-    //    else {
-    //        iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
-    //    }
-    //    if (iResult == SOCKET_ERROR) {
-    //        printf("Send failed: %d\n", WSAGetLastError());
-    //        closesocket(ConnectSocket);
-    //        WSACleanup();
-    //        break;
-    //    }
-
-    //    printf("Bytes sent: %d\n", iResult);
-
-    //    // Receive response from server
-    //    iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
-    //    if (iResult > 0) {
-    //        recvbuf[iResult] = '\0'; // Null-terminate the received data
-    //        printf("Server response: %s\n", recvbuf);
-    //    }
-    //    else if (iResult == 0) {
-    //        printf("Connection closed by server.\n");
-    //        break;
-    //    }
-    //    else {
-    //        printf("Receive failed: %d\n", WSAGetLastError());
-    //        break;
-    //    }
-    //}
 
     // Cleanup
     closesocket(ConnectSocket);
